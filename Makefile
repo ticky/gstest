@@ -9,7 +9,7 @@ EE_INCS += -I$(GSKIT)/include
 all: $(EE_BIN)
 
 clean:
-  rm -f $(EE_OBJS) $(EE_BIN)
+	rm -f $(EE_OBJS) $(EE_BIN)
 
 include $(PS2SDK)/samples/Makefile.pref
 include $(PS2SDK)/samples/Makefile.eeglobal
