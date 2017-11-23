@@ -8,6 +8,19 @@
 int main(int argc, char *argv[]) {
   GSGLOBAL *gsGlobal = gsKit_init_global();
 
+  // Initialise DMAKit
+  dmaKit_init(
+    D_CTRL_RELE_OFF,
+    D_CTRL_MFD_OFF,
+    D_CTRL_STS_UNSPEC,
+    D_CTRL_STD_OFF,
+    D_CTRL_RCYC_8,
+    1 << DMA_CHANNEL_GIF
+  );
+
+  // Initialise the DMAKit's channel
+  dmaKit_chan_init(DMA_CHANNEL_GIF);
+
   gsGlobal->BGColor->Red = 0x87;
   gsGlobal->BGColor->Green = 0x47;
   gsGlobal->BGColor->Blue = 0xbd;
