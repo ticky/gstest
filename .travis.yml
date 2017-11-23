@@ -1,5 +1,15 @@
 language: c
 sudo: required
 services:
-  - docker
+- docker
 script: docker run -it --rm -v "$PWD:/src" root670/ps2dev-gskit make
+deploy:
+  provider: releases
+  api_key:
+    secure: uc/73jU4+IZnNmPHxsZSbTx6LTzzMXJrtxYVq3z6TbHZXUyRPBmy3yuvZqzJIGdWSRKi3AguLpcHsIzNGzyc8gjAw+Q9Z5LRHCaRQIHvqWkleOgwymntzLXt7G+LQxO+HlqS7TyI/dEroGBFiNo5HSdgebEt/u28VlDoOLDpbtr7440tJJLiaevuP6YbJK5f9OCOkQoeTSlWJ2YZg/eYeC2p3tQSjSJWzFxafy/utsACchYvLtsVCn2L3hw1cWPd2gz9C2EnpbImZ42xAuOhVaFYOgp9g2l/W8BGRs1LQ274StZSn9DHZ3NcTyU2P3V3KvM6CDVUkXSO6biIJc4zqW/dNfIQ1p66CJ3tNzbECSQTvn1PR8YUI4s+R95tRIftA575VkVPET4QqUcEJlS875XlzJIzGEddJuJJX+FPhmYjQ/PTNucEsnNY5MsQQdI+lVUNSpjp43XBL77yGRfDgR3aft4uNMygLrhQyJl5JUufpFzDmU2JaMEdJOiWmq3hKVlvHCBNEh5Z01Ri3ZDVy+kYcKKDuBUTPYIo8oV7eoObijlYsVJPCDzQQj0t08yGBsP4mOn92bGqqWJA31q9DcOctq5q7+0ymKQO4hsTDDBmFK+Ey6CGQzJlLIXBm9NLzxRzrBN0w/V2Gx4yqryQ8laDPPt0htTLAQfk6dyPflY=
+  file: gstest.elf
+  skip_cleanup: true
+  on:
+    tags: true
+    repo: ticky/gstest
+    branch: develop
